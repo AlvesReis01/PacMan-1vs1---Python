@@ -6,6 +6,8 @@ screen.bgcolor("lightblue")
 screen.setup(width=590, height=740)
 
 # Defining their general basic attributes and behaviors by SuperClass
+
+
 class Players:
     def __init__(self, color, start_x, start_y):
         self.Points = 0
@@ -32,12 +34,18 @@ class Players:
         if not Check_Collision(New_X, New_Y):
             self.turtle.goto(New_X, New_Y)
 # Both classes inherit their attributes from the Players class, adjusting only the colors and initial positions.
+
+
 class Player1(Players):
     def __init__(self):
         super().__init__(color="blue", start_x=-150, start_y=0)
+
+
 class Player2(Players):
     def __init__(self):
         super().__init__(color="red", start_x=150, start_y=0)
+
+
 class Map:
     # Sets the block size on the map
     BLOCK_SIZE = 20
@@ -118,6 +126,7 @@ class Map:
             return self.map[Map_Y][Map_X] == 1
         return True  # Fora do mapa, considerado colisão
 
+
 class Game:
     # Instances all the classes.
     def __init__(self):
@@ -135,6 +144,7 @@ class Game:
         self.map.MapaLoad()
         self.Controls()
     # Defines the controls for the players
+    
     def Controls(self):
         screen.listen()
         #  Player1
@@ -164,6 +174,7 @@ class Game:
     def Update_Score_Player2(self, points):
         self.player2.Points += points
         self.Scoreboard()
+
 
 game = Game()
 game.Menu()
